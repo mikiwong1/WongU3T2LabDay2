@@ -16,8 +16,13 @@ public class CatHouse
     // same age, then have cat1 go first
     public void rollCall()
     {
-        cat1.introduce();
-        cat2.introduce();
+        if(cat1.getAge() > cat2.getAge()){
+            cat1.introduce();
+            cat2.introduce();
+        } else {
+            cat2.introduce();
+            cat1.introduce();
+        }
     }
 
     // IMPLEMENT this method!
@@ -25,7 +30,13 @@ public class CatHouse
     // each Cat's returned "speak()" string to the console
     public void catNoise()
     {
-        /* implement me! */
+        if(cat1.getAge() > cat2.getAge()){
+            cat1.speak();
+            cat2.speak();
+        } else {
+            cat2.speak();
+            cat1.speak();
+        }
     }
 
     // MODIFY this so that it prints each Cat's age next to its name
@@ -33,8 +44,8 @@ public class CatHouse
     public String toString()
     {
         String str = "Welcome to " + owner + "'s Cat House!\n";
-        str += "Cat 1's Name: " + cat1.getName() + "\n";
-        str += "Cat 2's Name: " + cat2.getName();
+        str += "Cat 1's Name: " + cat1.getName() + " Age: " + cat1.getAge() + "\n";
+        str += "Cat 2's Name: " + cat2.getName() + " Age: " + cat2.getAge();
 
         return str;
     }
